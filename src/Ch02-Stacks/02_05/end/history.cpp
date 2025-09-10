@@ -7,34 +7,34 @@ using namespace std;
 class BrowserHistory
 {
 private:
-    stack<string> history;
+    stack<string> historyStack;
 
 public:
     // Visiting a website
     void visit(const string &url)
     {
         cout << "Visiting: " << url << endl;
-        history.push(url);
+        historyStack.push(url);
     }
 
     // Clicking the back button
     void back()
     {
         cout << "Navigating back" << endl;
-        if (!history.empty())
+        if (!historyStack.empty())
         {
-            history.pop();
+            historyStack.pop();
         }
     }
 
     // Checking the current site
     string current() const
     {
-        if (history.empty())
+        if (historyStack.empty())
         {
             return "No sites currently being viewed.";
         }
-        return history.top();
+        return historyStack.top();
     }
 };
 
